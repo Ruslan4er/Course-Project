@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AEE21610-67EA-40B8-BCDE-C18660D111CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinanceApplication</RootNamespace>
+    <AssemblyName>FinanceApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.12.0.4518.1014\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddEditForms\AddTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\AddTransactionForm.Designer.cs">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\CloseAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\CloseAccountForm.Designer.cs">
+      <DependentUpon>CloseAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\DeleteUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\DeleteUserForm.Designer.cs">
+      <DependentUpon>DeleteUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Account.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Amortisation.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\FinanceApplicationDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\FinanceApplicationDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\FinanceApplicationDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\PlanedPurchases.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Post.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Repository.cs" />
+    <Compile Include="Database\sysdiagrams.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\User.cs">
+      <DependentUpon>FinanceApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceApplicationDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceApplicationDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceApplicationDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceApplicationDBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceApplicationDBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceApplicationDBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Management\AccountManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\AccountManagementForm.Designer.cs">
+      <DependentUpon>AccountManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\AddAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\AddAccountForm.Designer.cs">
+      <DependentUpon>AddAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\AddAmortisationPurchaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\AddAmortisationPurchaseForm.Designer.cs">
+      <DependentUpon>AddAmortisationPurchaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditForms\AddPlannedPurchaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForms\AddPlannedPurchaseForm.Designer.cs">
+      <DependentUpon>AddPlannedPurchaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\AmortisationManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\AmortisationManagementForm.Designer.cs">
+      <DependentUpon>AmortisationManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SampleContext.cs" />
+    <Compile Include="GreetingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GreetingForm.Designer.cs">
+      <DependentUpon>GreetingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\PlannedPurchaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\PlannedPurchaseForm.Designer.cs">
+      <DependentUpon>PlannedPurchaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManager.cs" />
+    <Compile Include="Management\UserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\UserManagementForm.Designer.cs">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditForms\AddTransactionForm.resx">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\CloseAccountForm.resx">
+      <DependentUpon>CloseAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\DeleteUserForm.resx">
+      <DependentUpon>DeleteUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\AccountManagementForm.resx">
+      <DependentUpon>AccountManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\AddAccountForm.resx">
+      <DependentUpon>AddAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\AddAmortisationPurchaseForm.resx">
+      <DependentUpon>AddAmortisationPurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditForms\AddPlannedPurchaseForm.resx">
+      <DependentUpon>AddPlannedPurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\AmortisationManagementForm.resx">
+      <DependentUpon>AmortisationManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GreetingForm.resx">
+      <DependentUpon>GreetingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\PlannedPurchaseForm.resx">
+      <DependentUpon>PlannedPurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Management\UserManagementForm.resx">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Database\FinanceApplicationDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\FinanceApplicationDBModel.edmx.diagram">
+      <DependentUpon>FinanceApplicationDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet.xsc">
+      <DependentUpon>FinanceApplicationDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceApplicationDBDataSet.xss">
+      <DependentUpon>FinanceApplicationDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet1.xsc">
+      <DependentUpon>FinanceApplicationDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceApplicationDBDataSet1.xss">
+      <DependentUpon>FinanceApplicationDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet2.xsc">
+      <DependentUpon>FinanceApplicationDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceApplicationDBDataSet2.xss">
+      <DependentUpon>FinanceApplicationDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet3.xsc">
+      <DependentUpon>FinanceApplicationDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceApplicationDBDataSet3.xss">
+      <DependentUpon>FinanceApplicationDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet4.xsc">
+      <DependentUpon>FinanceApplicationDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceApplicationDBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceApplicationDBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceApplicationDBDataSet4.xss">
+      <DependentUpon>FinanceApplicationDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\FinanceApplicationDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinanceApplicationDBModel.edmx</DependentUpon>
+      <LastGenOutput>FinanceApplicationDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\FinanceApplicationDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinanceApplicationDBModel.edmx</DependentUpon>
+      <LastGenOutput>FinanceApplicationDBModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

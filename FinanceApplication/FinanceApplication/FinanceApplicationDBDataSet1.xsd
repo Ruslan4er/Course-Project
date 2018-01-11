@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinanceApplicationDBDataSet1" targetNamespace="http://tempuri.org/FinanceApplicationDBDataSet1.xsd" xmlns:mstns="http://tempuri.org/FinanceApplicationDBDataSet1.xsd" xmlns="http://tempuri.org/FinanceApplicationDBDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinanceApplicationDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinanceApplicationDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FinanceApplication.Properties.Settings.GlobalReference.Default.FinanceApplicationDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AmortisationTableAdapter" GeneratorDataComponentClassName="AmortisationTableAdapter" Name="Amortisation" UserDataComponentName="AmortisationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceApplicationDBConnectionString (Settings)" DbObjectName="FinanceApplicationDB.dbo.Amortisation" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT AmortisationUID, Name, Cost, Status FROM dbo.Amortisation</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="AmortisationUID" DataSetColumn="AmortisationUID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinanceApplicationDBDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FinanceApplicationDBDataSet1" msprop:Generator_UserDSName="FinanceApplicationDBDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Amortisation" msprop:Generator_TableClassName="AmortisationDataTable" msprop:Generator_TableVarName="tableAmortisation" msprop:Generator_RowChangedName="AmortisationRowChanged" msprop:Generator_TablePropName="Amortisation" msprop:Generator_RowDeletingName="AmortisationRowDeleting" msprop:Generator_RowChangingName="AmortisationRowChanging" msprop:Generator_RowEvHandlerName="AmortisationRowChangeEventHandler" msprop:Generator_RowDeletedName="AmortisationRowDeleted" msprop:Generator_RowClassName="AmortisationRow" msprop:Generator_UserTableName="Amortisation" msprop:Generator_RowEvArgName="AmortisationRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" msprop:Generator_UserColumnName="Cost" type="xs:int" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:boolean" />
+              <xs:element name="AmortisationUID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAmortisationUID" msprop:Generator_ColumnPropNameInRow="AmortisationUID" msprop:Generator_ColumnPropNameInTable="AmortisationUIDColumn" msprop:Generator_UserColumnName="AmortisationUID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Amortisation" />
+      <xs:field xpath="mstns:AmortisationUID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

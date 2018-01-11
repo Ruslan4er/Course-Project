@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceApplicationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountUID" />
+    </Key>
+    <Property Name="AccountUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Balance" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Amortisation" Relationship="Self.FK_Amortisation_Account" FromRole="Account" ToRole="Amortisation" />
+    <NavigationProperty Name="PlanedPurchases" Relationship="Self.FK_PlanedPurchases_Account" FromRole="Account" ToRole="PlanedPurchases" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Post_Account" FromRole="Account" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Amortisation">
+    <Key>
+      <PropertyRef Name="AmortisationUID" />
+    </Key>
+    <Property Name="AmortisationUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="AccountUID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Amortisation_Account" FromRole="Amortisation" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="PlanedPurchases">
+    <Key>
+      <PropertyRef Name="PPUID" />
+    </Key>
+    <Property Name="PPUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="AccountUID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_PlanedPurchases_Account" FromRole="PlanedPurchases" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostUID" />
+    </Key>
+    <Property Name="PostUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AccountFrom" Type="Int32" Nullable="false" />
+    <Property Name="AccountWhere" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Post_Account" FromRole="Post" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserUID" />
+    </Key>
+    <Property Name="UserUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Amortisation_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Amortisation" Type="Self.Amortisation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountUID" />
+      </Principal>
+      <Dependent Role="Amortisation">
+        <PropertyRef Name="AccountUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanedPurchases_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="PlanedPurchases" Type="Self.PlanedPurchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountUID" />
+      </Principal>
+      <Dependent Role="PlanedPurchases">
+        <PropertyRef Name="AccountUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountUID" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="AccountFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanceApplicationDBEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="Self.Account" />
+    <EntitySet Name="Amortisation" EntityType="Self.Amortisation" />
+    <EntitySet Name="PlanedPurchases" EntityType="Self.PlanedPurchases" />
+    <EntitySet Name="Post" EntityType="Self.Post" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Amortisation_Account" Association="Self.FK_Amortisation_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Amortisation" EntitySet="Amortisation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanedPurchases_Account" Association="Self.FK_PlanedPurchases_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="PlanedPurchases" EntitySet="PlanedPurchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Account" Association="Self.FK_Post_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
